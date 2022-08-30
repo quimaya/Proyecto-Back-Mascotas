@@ -12,7 +12,7 @@ const schema = new Schema({
     password: {type: String, required: true},
     images: { type: String, required: true },
     raza: { type: String, enum: RAZAS, required: true },
-    pelaje: {type: Boolean},
+    pelaje: {type: String},
     color: {type: String}
 },
     {
