@@ -18,6 +18,6 @@ MascotasRoutes.post('/login', login );
 MascotasRoutes.get('/mascotaByNick/:nick', mascotaByNick );
 MascotasRoutes.patch('/update/:id',  upload.single("images"), updateMascota );
 MascotasRoutes.delete('/remove/:nick', deleteMascota );
-MascotasRoutes.get('/', getMascotas);
+MascotasRoutes.get('/pets', getMascotas);
 
 module.exports = MascotasRoutes;
