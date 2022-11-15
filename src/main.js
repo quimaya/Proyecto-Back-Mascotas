@@ -6,7 +6,7 @@ const { connect } = require('./utils/database/db');
 const MascotasRoutes = require('./api/mascotas/mascotas.routes');
 
 
-const {setUpCloudinary} = require("./utils/cloudinary/cloudinary")
+const { setUpCloudinary } = require("./utils/cloudinary/cloudinary")
 
 connect();
 
@@ -20,13 +20,20 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-app.use(cors());
+// acept all origins
+app.use(cors(
+    {
+        origin: '*',
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        allowedHeaders: ['Content-Type', 'Authorization']
+    }));
+
 
 
 
 const PORT = process.env.PORT || 8080;
 
-app.use('/api/v1', MascotasRoutes );
+app.use('/api/v1', MascotasRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server listening on port 🙈: ${PORT}`)
